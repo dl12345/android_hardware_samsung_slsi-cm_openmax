@@ -2817,6 +2817,7 @@ OSCL_EXPORT_REF OMX_ERRORTYPE Exynos_OMX_ComponentInit(
         pHevcDec->hMFCHevcHandle.videoInstInfo.eSecurityType = VIDEO_NORMAL;
 
     if (Exynos_Video_GetInstInfo(&(pHevcDec->hMFCHevcHandle.videoInstInfo), VIDEO_TRUE /* dec */) != VIDEO_ERROR_NONE) {
+		Exynos_OMX_VideoDecodeComponentDeinit(pOMXComponent);
         ret = OMX_ErrorUndefined;
         goto EXIT;
     }
